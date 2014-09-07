@@ -3,3 +3,7 @@ C:\Users\hes\Documents\RU\Veftjonustur\S1\Assignment1b\CoursesAPI.Models\bin\Deb
 C:\Users\hes\Documents\RU\Veftjonustur\S1\Assignment1b\CoursesAPI.Models\obj\Debug\CoursesAPI.Models.csprojResolveAssemblyReference.cache
 C:\Users\hes\Documents\RU\Veftjonustur\S1\Assignment1b\CoursesAPI.Models\obj\Debug\CoursesAPI.Models.dll
 C:\Users\hes\Documents\RU\Veftjonustur\S1\Assignment1b\CoursesAPI.Models\obj\Debug\CoursesAPI.Models.pdb
+C:\Users\hes\Documents\RU\Veftjonustur\RA\RA1\CoursesAPI.Models\bin\Debug\CoursesAPI.Models.dll
+C:\Users\hes\Documents\RU\Veftjonustur\RA\RA1\CoursesAPI.Models\bin\Debug\CoursesAPI.Models.pdb
+C:\Users\hes\Documents\RU\Veftjonustur\RA\RA1\CoursesAPI.Models\obj\Debug\CoursesAPI.Models.dll
+C:\Users\hes\Documents\RU\Veftjonustur\RA\RA1\CoursesAPI.Models\obj\Debug\CoursesAPI.Models.pdb

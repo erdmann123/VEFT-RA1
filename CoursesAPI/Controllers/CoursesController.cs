@@ -22,7 +22,11 @@ namespace CoursesAPI.Controllers
 			_service = new CoursesServiceProvider(new UnitOfWork<AppDataContext>());
 		}
 
-
+		/// <summary>
+		/// Gets all students that are registered to a course
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		[HttpGet]
 		[Route("{id:int}/students")]
 		public List<StudentDTO> GetStudentsInCourse(int id)
@@ -30,12 +34,25 @@ namespace CoursesAPI.Controllers
 			return _service.GetStudentsInCourse(id);
 		}
 
-
+		/// <summary>
+		/// Adds a student to a course if he is not already registered
+		/// </summary>
+		/// <param name="id">id of course</param>
+		/// <param name="model">object holds info about student like SSN</param>
+		/// <returns>Returns 200 ok - name, SSN and ID of the student</returns>
 		[HttpPost]
 		[Route("{id:int}/students")]
 		public StudentDTO AddStudentToCourse(int id, AddStudentViewModel model)
 		{
 			return _service.AddStudentToCourse(id, model);
+		}
+
+		
+		[HttpDelete]
+		[Route("{id:int}/students/{ssn}")]
+		public void RemoveStudentFromCourse(int id, string ssn )
+		{
+			_service.RemoveStudentFromCourse(id, ssn);
 		}
 	}
 }

@@ -61,8 +61,10 @@ namespace CoursesAPI.Services.Services
 
 			// Business rule 2: student can not be registered more than once to the same 
 			// course (but they can be re-registered)
-			var courseStudent = _courseStudents.All().SingleOrDefault( cs => cs.SSN == model.SSN 
-				&& cs.CourseInstanceID == id);
+			var courseStudent = _courseStudents.GetStudentInCourse(id, model.SSN);
+
+			//var courseStudent = _courseStudents.All().SingleOrDefault( cs => cs.SSN == model.SSN 
+			//	&& cs.CourseInstanceID == id);
 			if (courseStudent != null)
 			{
 				if (courseStudent.Status == 1)
@@ -90,6 +92,22 @@ namespace CoursesAPI.Services.Services
 				Name = student.Name
 			};
 
+		}
+
+		public void RemoveStudentFromCourse(int id, string ssn)
+		{
+			// Business rule 0: operation on courses must use valid courses IDs
+			var course = _courses.GetCourseByID(id);
+
+			// Business rule 2: student can not be registered more than once to the same 
+			// course (but they can be re-registered)
+			var courseStudent = _courseStudents.GetStudentInCourse(id, ssn);
+			if (courseStudent == null || courseStudent.Status != 1)
+			{
+				throw new ArgumentException("No Student with this SSN is registered in this course, request canceled");
+			}
+			courseStudent.Status = 2;
+			_uow.Save();
 		}
 	}
 }
